@@ -2,7 +2,6 @@ lockfileVersion: 5.3
 
 specifiers:
   '@sveltejs/adapter-node': 1.0.0-next.55
-  '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': next
   autoprefixer: 10.3.7
   better-sqlite3: 7.4.3
@@ -22,7 +21,6 @@ dependencies:
 
 devDependencies:
   '@sveltejs/adapter-node': 1.0.0-next.55
-  '@sveltejs/adapter-vercel': 1.0.0-next.31
   '@sveltejs/kit': 1.0.0-next.188_svelte@3.44.0
   autoprefixer: 10.3.7_postcss@8.3.11
   eslint: 7.32.0
@@ -129,12 +127,6 @@ packages:
     dependencies:
       esbuild: 0.13.8
       tiny-glob: 0.2.9
-    dev: true
-
-  /@sveltejs/adapter-vercel/1.0.0-next.31:
-    resolution: {integrity: sha512-W8p/U00B6ihVrDpwMkgEexfVUzaLmn4MRtXj//Gw4NDFfsrZR4P5wBidrOAIkCYBMvqCOHD+vbAvIiAMOaN23g==}
-    dependencies:
-      esbuild: 0.13.8
     dev: true
 
   /@sveltejs/kit/1.0.0-next.188_svelte@3.44.0:
