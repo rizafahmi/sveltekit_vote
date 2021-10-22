@@ -8,7 +8,8 @@ const config = {
 		target: '#svelte',
 		adapter: node({
 			env: {
-				port: process.env.PORT
+				port: process.env.PORT,
+				BASE_URL: process.env.BASE_URL || 'http://localhost:3000/'
 			}
 		})
 	},

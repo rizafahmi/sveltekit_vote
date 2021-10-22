@@ -1,7 +1,8 @@
 <script>
+
  import '../tailwind.css';
 
- const baseUrl = "http://localhost:3000";
+ const baseUrl = process.env.BASE_URL || "http://localhost:3000";
  let topics = [];
 
  async function getTopics() {

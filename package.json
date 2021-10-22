@@ -25,6 +25,7 @@
 	"type": "module",
 	"dependencies": {
 		"better-sqlite3": "7.4.3",
-		"daisyui": "1.14.7"
+		"daisyui": "1.14.7",
+		"dotenv": "10.0.0"
 	}
 }
