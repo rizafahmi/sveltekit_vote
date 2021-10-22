@@ -2,7 +2,7 @@
 
  import '../tailwind.css';
 
- const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+ const baseUrl = "https://fierce-anchorage-54347.herokuapp.com/";
  let topics = [];
 
  async function getTopics() {
