@@ -1,4 +1,6 @@
 <script>
+ import '../tailwind.css';
+
  const baseUrl = "http://localhost:3000";
  let topics = [];
 
@@ -21,11 +23,23 @@
  }
 </script>
 
+<div class="container">
+    <header>
+        <h1 class="text-4xl text-red-500">Vote Topik Livestreaming</h1>
+    </header>
 
-<h1>Vote Topik Livestreaming</h1>
+    <ul>
+        {#each topics as topic}
+            <li><div>{topic.title} <button class="btn" on:click={() => handleVote(topic.id)}>Vote({topic.vote})</button></div></li>
+        {/each}
+    </ul>
+</div>
 
-<ul>
-    {#each topics as topic}
-        <li><div>{topic.title} <button on:click={() => handleVote(topic.id)}>Vote({topic.vote})</button></div></li>
-    {/each}
-</ul>
+<style>
+ .container {
+     @apply py-4 px-6 flex flex-col items-center;
+ }
+ h1 {
+     @apply pb-6;
+ }
+</style>
