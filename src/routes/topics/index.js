@@ -8,12 +8,23 @@ db.exec(`CREATE TABLE IF NOT EXISTS topics (
   vote INTEGER DEFAULT 0
 )`);
 
-export async function get() {
+export async function get(request) {
 	const stmt = db.prepare('SELECT * FROM topics ORDER BY vote DESC');
 	const topics = stmt.all();
 	return {
 		body: {
-			topics
+			topics,
+			request
+		}
+	};
+}
+
+export async function post(request) {
+	console.log(request);
+	return {
+		body: {
+			status: 'OK',
+			request
 		}
 	};
 }
