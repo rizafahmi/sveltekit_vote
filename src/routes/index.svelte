@@ -1,7 +1,7 @@
 <script>
  import { onMount } from 'svelte';
 
- const baseUrl = "https://fierce-anchorage-54347.herokuapp.com";
+ const baseUrl = "https://vote-live.herokuapp.com";
  // const baseUrl = `http://192.168.1.105:3000`
  let topics = [];
  let voteStatus = true;
