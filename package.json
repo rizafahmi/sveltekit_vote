@@ -19,14 +19,13 @@
 		"postcss": "8.3.11",
 		"prettier": "^2.4.1",
 		"prettier-plugin-svelte": "^2.4.0",
-		"svelte": "^3.42.6",
-		"tailwindcss": "2.2.17"
+		"svelte": "^3.42.6"
 	},
 	"type": "module",
 	"dependencies": {
+		"@lukeed/uuid": "2.0.0",
 		"better-sqlite3": "7.4.3",
 		"cookie": "0.4.1",
-		"daisyui": "1.14.7",
 		"dotenv": "10.0.0"
 	}
 }
