@@ -1,15 +1,25 @@
 <script context="module">
  export async function load({page}) {
-     console.log({page})
      return {
-         props: {}
+         props: {
+             host: page.host
+         }
      }
  }
 </script>
 <script>
  import { onMount } from 'svelte';
 
- const baseUrl = "https://vote-live.herokuapp.com";
+ export let host;
+ let baseUrl = '';
+
+ if(host === 'localhost:3000' ) {
+     baseUrl = `http://${host}`;
+ } else if(host[0] === '1') {
+     baseUrl = `http://${host}`;
+ } else {
+     baseUrl = "https://vote-live.herokuapp.com";
+ }
  // const baseUrl = `http://192.168.1.105:3000`
  let topics = [];
  let voteStatus = true;
