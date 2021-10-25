@@ -1,3 +1,11 @@
+<script context="module">
+ export async function load({page}) {
+     console.log({page})
+     return {
+         props: {}
+     }
+ }
+</script>
 <script>
  import { onMount } from 'svelte';
 
@@ -8,7 +16,6 @@
 
  onMount(function() {
      const lastVisit = localStorage.getItem('lastVisit')
-     console.log(lastVisit)
      if(lastVisit !== null && new Date().getTime() - lastVisit < 50000000) {
          voteStatus = false;
      }
@@ -59,9 +66,6 @@
 
 <style>
  .container {
-     @apply py-4 px-6 flex flex-col items-center;
- }
- h1 {
-     @apply pb-6;
+     padding: 12px;
  }
 </style>

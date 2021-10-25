@@ -1,12 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@lukeed/uuid': 2.0.0
   '@sveltejs/adapter-node': 1.0.0-next.55
   '@sveltejs/kit': next
   autoprefixer: 10.3.7
   better-sqlite3: 7.4.3
-  cookie: 0.4.1
   dotenv: 10.0.0
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
@@ -17,9 +15,7 @@ specifiers:
   svelte: ^3.42.6
 
 dependencies:
-  '@lukeed/uuid': 2.0.0
   better-sqlite3: 7.4.3
-  cookie: 0.4.1
   dotenv: 10.0.0
 
 devDependencies:
@@ -87,18 +83,6 @@ packages:
   /@humanwhocodes/object-schema/1.2.0:
     resolution: {integrity: sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==}
     dev: true
-
-  /@lukeed/csprng/1.0.0:
-    resolution: {integrity: sha512-ruuGHsnabmObBdeMg3vKdGRmh06Oog3eFpf/Tk6X0kDSJDpJTDCj2dqdp1+0VjzIUgHlFF9GBm7uFqfYhhdX9g==}
-    engines: {node: '>=8'}
-    dev: false
-
-  /@lukeed/uuid/2.0.0:
-    resolution: {integrity: sha512-dUz8OmYvlY5A9wXaroHIMSPASpSYRLCqbPvxGSyHguhtTQIy24lC+EGxQlwv71AhRCO55WOtgwhzQLpw27JaJQ==}
-    engines: {node: '>=8'}
-    dependencies:
-      '@lukeed/csprng': 1.0.0
-    dev: false
 
   /@rollup/pluginutils/4.1.1:
     resolution: {integrity: sha512-clDjivHqWGXi7u+0d2r2sBi4Ie6VLEAzWMIkvJLnDmxoOhBYOTfzGbOQBA32THHm11/LiJbd01tJUpJsbshSWQ==}
@@ -386,11 +370,6 @@ packages:
 
   /console-control-strings/1.1.0:
     resolution: {integrity: sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=}
-    dev: false
-
-  /cookie/0.4.1:
-    resolution: {integrity: sha512-ZwrFkGJxUR3EIoXtO+yVE69Eb7KlixbaeAWfBQB9vVsNn/o+Yw69gBWSSDK825hQNdN+wF8zELf3dFNl/kxkUA==}
-    engines: {node: '>= 0.6'}
     dev: false
 
   /core-util-is/1.0.3:
