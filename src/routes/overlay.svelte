@@ -1,7 +1,8 @@
 <script type="text/javascript">
  import { onMount } from 'svelte';
  let topics = [];
- const baseUrl = `http://192.168.1.105:3000`
+ // const baseUrl = `http://192.168.1.105:3000`
+ const baseUrl = "https://fierce-anchorage-54347.herokuapp.com";
 
  async function getTopics() {
      const res = await fetch(`${baseUrl}/topics`);
