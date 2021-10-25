@@ -20,7 +20,6 @@ export async function get(request) {
 }
 
 export async function post({ body }) {
-	console.log({ body });
 	let stmt;
 	switch (body.action) {
 		case 'reset-vote':
@@ -30,19 +29,28 @@ export async function post({ body }) {
 		case 'add':
 			stmt = db.prepare(`INSERT INTO topics (title) VALUES ('${body.payload.title}')`);
 			stmt.run();
+			// TODO: Refresh localStorage
+			break;
+		case 'update':
+			stmt = db.prepare(
+				`UPDATE topics SET vote=${body.payload.vote} WHERE title='${body.payload.title}'`
+			);
+			stmt.run();
 			break;
 		case 'remove':
 			stmt = db.prepare(`DELETE FROM topics WHERE title='${body.payload.title}'`);
 			stmt.run();
 			break;
 	}
+	const topicsApi = await get();
 	return {
 		headers: {
 			'content-type': 'application/json'
 		},
 		body: {
 			status: 'OK',
-			body
+			body,
+			topics: topicsApi.body.topics
 		}
 	};
 }
