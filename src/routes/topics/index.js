@@ -1,5 +1,4 @@
 import { db } from '$lib/db.js';
-console.log(db);
 
 (async function setup() {
 	await db.none(`CREATE TABLE IF NOT EXISTS topics (
