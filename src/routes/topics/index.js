@@ -1,6 +1,5 @@
 import { db } from '$lib/db.js';
-
-(async function setup() {
+console.log(db)(async function setup() {
 	await db.none(`CREATE TABLE IF NOT EXISTS topics (
   id SERIAL PRIMARY KEY,
   title TEXT UNIQUE,
