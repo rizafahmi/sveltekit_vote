@@ -5,6 +5,6 @@ const config = {
 	connectionString: db_url
 };
 
-const db = pgp()(config);
+const db = pgp()(db_url);
 
 export { pgp, db };
