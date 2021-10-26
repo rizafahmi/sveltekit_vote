@@ -1,11 +1,5 @@
 import { db } from '$lib/db.js';
 
-db.exec(`CREATE TABLE IF NOT EXISTS topics (
-  id INTEGER PRIMARY KEY ASC,
-  title TEXT,
-  vote INTEGER DEFAULT 0
-)`);
-
 export async function get(request) {
 	const stmt = db.prepare('SELECT * FROM topics ORDER BY vote DESC');
 	const topics = stmt.all();
