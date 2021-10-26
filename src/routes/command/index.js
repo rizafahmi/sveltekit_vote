@@ -1,6 +1,4 @@
-import betterSqlite from 'better-sqlite3';
-
-const db = betterSqlite('topics.db', {});
+import { db } from '$lib/db.js';
 
 db.exec(`CREATE TABLE IF NOT EXISTS topics (
   id INTEGER PRIMARY KEY ASC,
