@@ -1,46 +1,50 @@
-import betterSqlite from 'better-sqlite3';
+import { db } from '$lib/db.js';
 
-const db = betterSqlite('topics.db', {});
-
-db.exec(`CREATE TABLE IF NOT EXISTS topics (
-  id INTEGER PRIMARY KEY ASC,
-  title TEXT,
-  vote INTEGER DEFAULT 0
+(async function setup() {
+	await db.none(`CREATE TABLE IF NOT EXISTS topics (
+  id SERIAL PRIMARY KEY,
+  title TEXT UNIQUE,
+  vote INTEGER DEFAULT 0,
+  show BOOLEAN DEFAULT true
 )`);
+})();
 
 export async function get(request) {
-	const stmt = db.prepare('SELECT * FROM topics ORDER BY vote DESC');
-	const topics = stmt.all();
-	return {
-		body: {
-			topics,
-			request
-		}
-	};
-}
-
-export async function post(request) {
-	console.log(request);
-	return {
-		body: {
-			status: 'OK',
-			request
-		}
-	};
+	try {
+		const topics = await db.any('SELECT * FROM topics ORDER BY vote DESC LIMIT 6');
+		return {
+			body: {
+				topics
+			}
+		};
+	} catch (error) {
+		return {
+			body: {
+				status: 'KO',
+				error
+			}
+		};
+	}
 }
 
 export async function patch({ body }) {
-	console.log('PATCH');
 	const data = JSON.parse(body);
-	const stmt = db.prepare(`UPDATE topics SET vote=vote+1 WHERE id=${data.id}`);
-	stmt.run();
+	try {
+		await db.none(`UPDATE topics SET vote=vote+1 WHERE id=${data.id}`);
+		const topicsTable = await get();
 
-	const topicsTable = await get();
-
-	return {
-		body: {
-			status: 'OK',
-			topics: topicsTable.body.topics
-		}
-	};
+		return {
+			body: {
+				status: 'OK',
+				topics: topicsTable.body.topics
+			}
+		};
+	} catch (error) {
+		return {
+			body: {
+				status: 'KO',
+				error
+			}
+		};
+	}
 }
