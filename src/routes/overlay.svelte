@@ -1,8 +1,27 @@
-<script type="text/javascript">
+<script context="module">
+ export async function load({page}) {
+     return {
+         props: {
+             host: page.host
+         }
+     }
+ }
+</script>
+
+<script>
  import { onMount } from 'svelte';
  let topics = [];
  // const baseUrl = `http://192.168.1.105:3000`
- const baseUrl = "https://vote-live.herokuapp.com";
+ export let host;
+ let baseUrl = '';
+
+ if(host === 'localhost:3000' ) {
+     baseUrl = `http://${host}`;
+ } else if(host[0] === '1') {
+     baseUrl = `http://${host}`;
+ } else {
+     baseUrl = "https://vote-live.herokuapp.com";
+ }
 
  async function getTopics() {
      const res = await fetch(`${baseUrl}/topics`);
