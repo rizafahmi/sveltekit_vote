@@ -54,7 +54,7 @@
 
 <div class="container">
     <header>
-        <h1 class="text-4xl text-red-500">🌈 Vote Topik Livestreaming youtube.com/rizafahmi 🌈</h1>
+        <h1 class="text-4xl text-red-500">🌈 Vote Topik Livestreaming <a href="https://youtube.com/rizafahmi" target="_blank">youtube.com/rizafahmi</a> 🌈</h1>
         {#if voteStatus === false}
             <p>Terimaksih sudah kontribusi vote. Vote lagi lain waktu.
             </p>
