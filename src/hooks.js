@@ -5,7 +5,6 @@ export async function handle({ request, resolve }) {
 	const cookies = cookie.parse(request.headers.cookie || '');
 
 	request.locals.user = cookies.user || uuid();
-	console.log({ user: request.locals.user });
 	if (request.query.has('_method')) {
 		request.method = request.query.get('_method').toUpperCase();
 	}

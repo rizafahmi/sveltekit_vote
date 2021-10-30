@@ -19,10 +19,12 @@ const db = pgp()(config);
   title TEXT UNIQUE,
   vote INTEGER DEFAULT 0,
   show BOOLEAN DEFAULT true
-);
+);`);
+	console.log('db setup');
+	await db.none(`
 CREATE TABLE IF NOT EXISTS voters (
 id SERIAL PRIMARY KEY,
-cookie TEXT,
+cookie TEXT UNIQUE,
 insert_at TIMESTAMP DEFAULT NOW()
 )`);
 })();

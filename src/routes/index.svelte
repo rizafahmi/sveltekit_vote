@@ -26,12 +26,17 @@
  let topics = [];
  let voteStatus = true;
 
- onMount(function() {
-     const lastVisit = localStorage.getItem('lastVisit')
-     if(lastVisit !== null && new Date().getTime() - lastVisit < 50000000) {
-         voteStatus = false;
+ onMount(async function() {
+     if(session !== '' || session !== null) {
+         voteStatus = !await checkVoter(session)
      }
  });
+
+ async function checkVoter(session) {
+     const res = await fetch(`${baseUrl}/checkvoter?sessid=${session}`)
+     const voter = await res.json();
+     return voter.status;
+ }
 
  async function getTopics() {
      const res = await fetch(`${baseUrl}/topics`);
