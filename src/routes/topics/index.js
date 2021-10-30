@@ -1,14 +1,5 @@
 import { db } from '$lib/db.js';
 
-(async function setup() {
-	await db.none(`CREATE TABLE IF NOT EXISTS topics (
-  id SERIAL PRIMARY KEY,
-  title TEXT UNIQUE,
-  vote INTEGER DEFAULT 0,
-  show BOOLEAN DEFAULT true
-)`);
-})();
-
 export async function get() {
 	try {
 		const topics = await db.any('SELECT * FROM topics ORDER BY vote DESC LIMIT 6');
@@ -27,11 +18,13 @@ export async function get() {
 	}
 }
 
-export async function patch({ body }) {
+export async function patch({ body, request }) {
+	console.log(request);
 	const data = JSON.parse(body);
 	try {
-		await db.none(`UPDATE topics SET vote=vote+1 WHERE id=${data.id}`);
+		// await db.none(`UPDATE topics SET vote=vote+1 WHERE id=${data.id}`);
 		const topicsTable = await get();
+		// await db.none(`INSERT INTO voters (cookie) VALUES(${cookie})`);
 
 		return {
 			body: {

@@ -1,8 +1,9 @@
 <script context="module">
- export async function load({page}) {
+ export async function load({page, session}) {
      return {
          props: {
-             host: page.host
+             host: page.host,
+             session
          }
      }
  }
@@ -11,6 +12,7 @@
  import { onMount } from 'svelte';
 
  export let host;
+ export let session;
  let baseUrl = '';
 
  if(host === 'localhost:3000' ) {

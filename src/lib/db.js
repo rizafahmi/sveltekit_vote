@@ -13,4 +13,18 @@ const config = {
 
 const db = pgp()(config);
 
+(async function setup() {
+	await db.none(`CREATE TABLE IF NOT EXISTS topics (
+  id SERIAL PRIMARY KEY,
+  title TEXT UNIQUE,
+  vote INTEGER DEFAULT 0,
+  show BOOLEAN DEFAULT true
+);
+CREATE TABLE IF NOT EXISTS voters (
+id SERIAL PRIMARY KEY,
+cookie TEXT,
+insert_at TIMESTAMP DEFAULT NOW()
+)`);
+})();
+
 export { pgp, db };
