@@ -2,7 +2,7 @@ import { db } from '$lib/db.js';
 
 export async function get() {
 	try {
-		const topics = await db.any('SELECT * FROM topics ORDER BY vote DESC LIMIT 6');
+		const topics = await db.any('SELECT * FROM topics ORDER BY vote DESC LIMIT 10');
 		return {
 			body: {
 				topics
