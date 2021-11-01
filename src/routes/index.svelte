@@ -50,11 +50,10 @@
 
      const res = await fetch(`${baseUrl}/topics`, {
          method: 'PATCH',
-         body: JSON.stringify({id: id})
+         body: JSON.stringify({id:id, baseUrl:baseUrl})
      });
      const data = await res.json();
      topics = data.topics;
-     localStorage.setItem('lastVisit', new Date().getTime())
      voteStatus = false;
  }
 </script>
